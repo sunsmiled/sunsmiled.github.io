@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="adb,test," />
 
 
 
@@ -79,17 +79,21 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="adb连不上devices ###网上搜索了下可能是某个进程占用了5037端口，通过命令查找找出这个进程并通过任务管理器杀掉此进程 12netstat -aon | findstr &amp;quot;5037&amp;quot;tasklist | findstr &amp;quot;通过上条命令找的ID&amp;quot; ###我通过这个命令找出是PPAdbserver.exe占用了这个端口，通过任务管理器把这个进程杀掉（">
+<meta name="keywords" content="adb,test">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/04/23/hello-world/index.html">
+<meta property="og:title" content="adb连不上devices">
+<meta property="og:url" content="http://yoursite.com/2018/04/24/adb使用时连不上devices/index.html">
 <meta property="og:site_name" content="iSara&#39;s blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="adb连不上devices ###网上搜索了下可能是某个进程占用了5037端口，通过命令查找找出这个进程并通过任务管理器杀掉此进程 12netstat -aon | findstr &amp;quot;5037&amp;quot;tasklist | findstr &amp;quot;通过上条命令找的ID&amp;quot; ###我通过这个命令找出是PPAdbserver.exe占用了这个端口，通过任务管理器把这个进程杀掉（">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-23T14:00:56.571Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/sunsmiled/MarkdownPicture/master/pic/adb%E8%BF%9E%E4%B8%8D%E4%B8%8A1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/sunsmiled/MarkdownPicture/master/pic/adb%E8%BF%9E%E4%B8%8D%E4%B8%8A2.png">
+<meta property="og:updated_time" content="2018-04-24T15:27:22.180Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="adb连不上devices">
+<meta name="twitter:description" content="adb连不上devices ###网上搜索了下可能是某个进程占用了5037端口，通过命令查找找出这个进程并通过任务管理器杀掉此进程 12netstat -aon | findstr &amp;quot;5037&amp;quot;tasklist | findstr &amp;quot;通过上条命令找的ID&amp;quot; ###我通过这个命令找出是PPAdbserver.exe占用了这个端口，通过任务管理器把这个进程杀掉（">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/sunsmiled/MarkdownPicture/master/pic/adb%E8%BF%9E%E4%B8%8D%E4%B8%8A1.png">
 
 
 
@@ -119,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/23/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/24/adb使用时连不上devices/"/>
 
 
 
 
 
-  <title>Hello World | iSara's blog</title>
+  <title>adb连不上devices | iSara's blog</title>
   
 
 
@@ -242,7 +246,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/23/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/24/adb使用时连不上devices/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="iSara">
@@ -259,7 +263,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">adb连不上devices</h1>
         
 
         <div class="post-meta">
@@ -271,8 +275,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-23T22:00:56+08:00">
-                2018-04-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-24T23:13:53+08:00">
+                2018-04-24
               </time>
             
 
@@ -309,15 +313,12 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h3 id="adb连不上devices"><a href="#adb连不上devices" class="headerlink" title="adb连不上devices"></a>adb连不上devices</h3><p><img src="https://raw.githubusercontent.com/sunsmiled/MarkdownPicture/master/pic/adb%E8%BF%9E%E4%B8%8D%E4%B8%8A1.png" alt="这里写图片描述"></p>
+<p>###网上搜索了下可能是某个进程占用了5037端口，通过命令查找找出这个进程并通过任务管理器杀掉此进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">netstat -aon | findstr &quot;5037&quot;</span><br><span class="line">tasklist | findstr &quot;通过上条命令找的ID&quot;</span><br></pre></td></tr></table></figure>
+<p>###我通过这个命令找出是PPAdbserver.exe占用了这个端口，通过任务管理器把这个进程杀掉（手机重新连接，自动启动这个进程导致依然连不上），查询PPadbserver.exe的属性，发现是在豌豆荚中启动的，将豌豆荚卸载了可以连上devices，但是adb devices显示的是offline，继续google了下，建议将adb升级下版本。在网上下载了adb的工具包，包括以下内容<img src="https://raw.githubusercontent.com/sunsmiled/MarkdownPicture/master/pic/adb%E8%BF%9E%E4%B8%8D%E4%B8%8A2.png" alt="这里写图片描述"></p>
+<p>###将这个工具包与之前tools里面的内容替换掉，然后运行adb version得到版本号为1.0.32，之后adb devices可以连接到手机，最重要的是豌豆荚也可以同时开启；</p>
+<p>##更新下adb完美解决</p>
 
       
     </div>
@@ -333,6 +334,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/adb-test/" rel="tag"># adb,test</a>
+          
+        </div>
+      
 
       
       
@@ -342,14 +349,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/04/23/My-First-Post/" rel="next" title="读书日">
+                <i class="fa fa-chevron-left"></i> 读书日
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/23/My-First-Post/" rel="prev" title="读书日">
-                读书日 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/24/测试时一些手机（比如魅族、华为）不能打印日志解决办法/" rel="prev" title="测试时一些手机不能打印日志">
+                测试时一些手机不能打印日志 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -477,7 +488,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#adb连不上devices"><span class="nav-number">1.</span> <span class="nav-text">adb连不上devices</span></a></li></ol></div>
             
 
           </div>
