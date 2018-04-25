@@ -323,7 +323,22 @@
       
         
           
-          最近项目中需要实现两组图片对比，并能将两者的区别标识出来。在网上搜索一大堆找到一篇大神的文章，最终实现该功能，在这里记录下：想要实现此demo，首先我们得确保电脑上已安装 openCV 和 Python 两个工具以及scikit-image和imutils两个库：安装方法，在这里不多说，我安装的是P
+          最近项目中需要实现两组图片对比，并能将两者的区别标识出来。在网上搜索一大堆找到一篇大神的文章，最终实现该功能，在这里记录下：想要实现此demo，首先我们得确保电脑上已安装 openCV 和 Python 两个工具以及scikit-image和imutils两个库：安装方法，在这里不多说，我安装的是Python3.6 和openCV2，安装方法网上自行百度谷歌；进入正题：新建一个新的Python文件并命名为copmarePicture.py，写入下面的代码：
+
+from skimage.measure import compare_ssim
+#~ import skimage  as ssim
+import argparse
+import imutils
+import cv2
+
+
+####加载两张图片并将他们转换为灰度：
+
+
+imageA = cv2.imread(&quot;D:/111test/111.png&quot;)
+imageB = cv2.imread(&quot;D:/111test/444.png&quot;)
+
+grayA = cv2.cvtColor(imageA,
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -451,8 +466,8 @@
           
           adb连不上devices
 网上搜索了下可能是某个进程占用了5037端口，通过命令查找找出这个进程并通过任务管理器杀掉此进程12netstat -aon | findstr &quot;5037&quot;tasklist | findstr &quot;通过上条命令找的ID&quot;
-我通过这个
-          ...
+我通过这个命令找出是PPAdbserver.exe占用了这个端口，通过任务管理器把这个进程杀掉（手机重新连接，自动启动这个进程导致依然连不上），查询PPadbserver.exe的属性，发现是在豌豆荚中启动的，将豌豆荚卸载了可以连上devices，但是adb devices显示的是offline，继续google了下，建议将adb升级下版本。在网上下载了adb的工具包，包括以下内容将这个工具包与之前tools里面的内容替换掉，然后运行adb version得到版本号为1.0.32，之后adb devices可以连接到手机，最重要的是豌豆荚也可以同时开启；更新下adb完美解决
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/25/adb使用时连不上devices/#more" rel="contents">
@@ -578,8 +593,12 @@
         
           
           在做有关图像处理时，需要加载一些第三方库scikit-image、scipy、numpy等库安装scikit-image、scipy库时，用pip install --upgrade scikit-image安装是出现如下错误：在网上找了各种解决办法，解决了在这里整理下，总了个结：
-在Python提
-          ...
+在Python提供的第三方包的列表库查找所需要的包，根据本机系统下载相应的安装包：比如我安装的Python是3.6版本，系统是x32的，于是选择了以下对应的whl文件：
+然后利用Python的包管理器pip，通过指定全路径的方式，依次安装这三个包，如：pip install filepath/numpy-1.11.3+mkl-cp36-cp36m-win32.whlfilepath指的是文件的存放地址。安装时应该先安装numpy+mkl，因为后边的scipy和scikit-image等都是依赖于numpy+mkl这个库的。以下是我安装过程：
+
+
+完美安装成功
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/25/安装scikit-image error/#more" rel="contents">
@@ -704,8 +723,14 @@
       
         
           
-          Windows在运行Python项目时，报错no module named Crypto.Cipher刚开始以为是没有这个库，用常规的pip install crypto。安装完成之后，依然报错在网上搜索结果是需要安装pycrypto，首先卸载之前安装的crypto，然后安装pycrypto，用如下
-          ...
+          Windows在运行Python项目时，报错no module named Crypto.Cipher刚开始以为是没有这个库，用常规的pip install crypto。安装完成之后，依然报错在网上搜索结果是需要安装pycrypto，首先卸载之前安装的crypto，然后安装pycrypto，用如下方法：
+
+pip uninstall Crypto
+pip uninstall pycrypto
+pip install pycryp
+
+在此过程中安装pycrypto失败，解决办法：在http://www.voidspace.org.uk/python/modules.shtml#pycrypto直接下载编译好的源文件。运行，安装，成功，之后就可以愉快的使用crypto.参考链接：http://stackoverflow.com/questions/11405549/how-do-i-install-pycrypto-on-windows
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/24/no_module_named_Crypto.Cipher/#more" rel="contents">
@@ -835,8 +860,16 @@
 def allDir(path):
     f=[]
     for root,dirs,files in os.walk(path):
-        
-          ...
+        for filespath in files:
+            print(os.path.join(root,filespath))
+            f.append(os.path.join(root,filespath))
+
+    print(f)
+    return(f)
+
+
+
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/24/Python遍历文件夹中的文件/#more" rel="contents">
@@ -962,7 +995,8 @@ def allDir(path):
         
           
           stackoverflow同问题，这个链接help我解决此问题
-最近刚开始使用autoIT，需要通过uiautomatorviewer.bat（Android sdk中）来找到屏幕上控件的ID或者text，用来编写相应脚本从官网下载Android sdk，找到对应的uiautomatorviewer
+最近刚开始使用autoIT，需要通过uiautomatorviewer.bat（Android sdk中）来找到屏幕上控件的ID或者text，用来编写相应脚本从官网下载Android sdk，找到对应的uiautomatorviewer.bat，打开发现出现错误提示：Unable to connect to adb.Check if adb is installed correctly
+通过网上搜索相关内容，得以解决，方法如下：用记事本打开uiautomatorviewer.bat，找到call %java_exe% -Djava.ext.dirs=%javaextdirs% -Dcom.android.uiautomator.bindir= -jar %jarpath% %把它改为call &quot;%java_exe%&quot; &quot;-Djava.ext.dirs=%javaextdirs%&quot; &quot;-Dcom.android.uiautomator.bindir=D:\Android\to
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1088,8 +1122,8 @@ def allDir(path):
       
         
           
-          最近用widows电脑需要将文件夹压缩成zip文件，查询方法如下：1、使用Windows7压缩zip文件鼠标右键单击要压缩的文件夹或者选择的多个文件，选择“发送到 -&gt; 压缩(zipped)文件夹”，然后系统就自动压缩成一个与文件夹同名的zip压缩文件。2、使用Windows7解压缩zip文件
-          ...
+          最近用widows电脑需要将文件夹压缩成zip文件，查询方法如下：1、使用Windows7压缩zip文件鼠标右键单击要压缩的文件夹或者选择的多个文件，选择“发送到 -&gt; 压缩(zipped)文件夹”，然后系统就自动压缩成一个与文件夹同名的zip压缩文件。2、使用Windows7解压缩zip文件解压缩zip文件也很简单，有两种方法：1、鼠标右键zip压缩文件，选择“全部提取”，然后按照步骤提取到某一个目录就可以了。2、如果你的鼠标右键没有“全部提取”这一选项，就可以使用这个方法了。标右键zip压缩文件，选择“打开方式 -&gt; Windows资源管理器”，然后在左上角可以点击“提取所有文件”。或者就当这个压缩包为一个文件夹，在资源管理器中复制&amp;拷贝也可以。
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/24/Windows7自带压缩和解压缩zip功能的使用方法/#more" rel="contents">
@@ -1217,8 +1251,11 @@ def allDir(path):
           最近刚接触 monkey ，用 monkey 对 apk 进行性能测试，发现 monkey 跑起来，无法停止，遂在网上搜索了一通，终解决，在此记录下：
 adb shell
 top | grep monkey运行出来的 ID  比如14218找到 id 为上面所得的，然后 kill 掉就 OK；
-ad
-          ...
+adb shell 
+kill -9 14218
+
+
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/24/如何停止 Android Monkey 脚本/#more" rel="contents">
@@ -1343,8 +1380,8 @@ ad
       
         
           
-          测试客户端APP时，需要打印些日志来测试以及定位bug，但是在测试过程中总有一些手机不按套路出牌（比如一些手机默认不能打印log需要手动设置才能打印出log日志）魅族pr5设置方法：打开【设置 】中的【开发者选项】，页面底部找到【性能优化】，打开【高级日志输出】勾选【全部允许】即可。华为手机：不是在
-          ...
+          测试客户端APP时，需要打印些日志来测试以及定位bug，但是在测试过程中总有一些手机不按套路出牌（比如一些手机默认不能打印log需要手动设置才能打印出log日志）魅族pr5设置方法：打开【设置 】中的【开发者选项】，页面底部找到【性能优化】，打开【高级日志输出】勾选【全部允许】即可。华为手机：不是在【开发者选项】中，而是打开拨号界面的拨号盘，输入##2846579##，系统会自动打开【工程菜单】界面，依次打开【后台设置】-&gt;【log设置】，勾选【AP日志】即可。暂时遇到这两款手机，以后遇到其他的再补充
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/24/测试时一些手机（比如魅族、华为）不能打印日志解决办法/#more" rel="contents">
