@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/sunsmiled/MarkdownPicture/master/pic/diff1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sunsmiled/MarkdownPicture/master/pic/diff3.png">
-<meta property="og:updated_time" content="2018-04-25T15:13:49.166Z">
+<meta property="og:updated_time" content="2018-04-26T14:25:18.751Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用openCV 和 Python 实现图片对比，并标识出不同点">
 <meta name="twitter:description" content="最近项目中需要实现两组图片对比，并能将两者的区别标识出来。在网上搜索一大堆找到一篇大神的文章，最终实现该功能，在这里记录下：想要实现此demo，首先我们得确保电脑上已安装 openCV 和 Python 两个工具以及scikit-image和imutils两个库：安装方法，在这里不多说，我安装的是Python3.6 和openCV2，安装方法网上自行百度谷歌；进入正题：新建一个新的Python文件">
@@ -332,8 +332,7 @@ import imutils
 import cv2
 </code></pre><html>
 
-<p>####加载两张图片并将他们转换为灰度：</p>
-<html>
+<h4 id="加载两张图片并将他们转换为灰度："><a href="#加载两张图片并将他们转换为灰度：" class="headerlink" title="加载两张图片并将他们转换为灰度："></a>加载两张图片并将他们转换为灰度：</h4><html>
 
 <pre><code>imageA = cv2.imread(&quot;D:/111test/111.png&quot;)
 imageB = cv2.imread(&quot;D:/111test/444.png&quot;)
@@ -341,22 +340,19 @@ imageB = cv2.imread(&quot;D:/111test/444.png&quot;)
 grayA = cv2.cvtColor(imageA,cv2.COLOR_BGR2GRAY)
 grayB = cv2.cvtColor(imageB,cv2.COLOR_BGR2GRAY)
 </code></pre><p><html></html></p>
-<p>####接下来，计算两个灰度图像之间的结构相似度指数：</p>
-<html>
+<h4 id="接下来，计算两个灰度图像之间的结构相似度指数："><a href="#接下来，计算两个灰度图像之间的结构相似度指数：" class="headerlink" title="接下来，计算两个灰度图像之间的结构相似度指数："></a>接下来，计算两个灰度图像之间的结构相似度指数：</h4><html>
 
 <pre><code>(score,diff) = compare_ssim(grayA,grayB,full = True)
 diff = (diff *255).astype(&quot;uint8&quot;)
 print(&quot;SSIM:{}&quot;.format(score))
 </code></pre><p><html></html></p>
-<p>####找到不同点的轮廓以致于我们可以在被标识为“不同”的区域周围放置矩形：</p>
-<html>
+<h4 id="找到不同点的轮廓以致于我们可以在被标识为“不同”的区域周围放置矩形："><a href="#找到不同点的轮廓以致于我们可以在被标识为“不同”的区域周围放置矩形：" class="headerlink" title="找到不同点的轮廓以致于我们可以在被标识为“不同”的区域周围放置矩形："></a>找到不同点的轮廓以致于我们可以在被标识为“不同”的区域周围放置矩形：</h4><html>
 
 <pre><code>thresh = cv2.threshold(diff,0,255,cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)[1]
 cnts = cv2.findContours(thresh.copy(),cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
 cnts = cnts[0] if imutils.is_cv2() else cnts[1]
 </code></pre><p><html></html></p>
-<p>####找到一系列区域，在区域周围放置矩形： </p>
-<html>
+<h4 id="找到一系列区域，在区域周围放置矩形："><a href="#找到一系列区域，在区域周围放置矩形：" class="headerlink" title="找到一系列区域，在区域周围放置矩形："></a>找到一系列区域，在区域周围放置矩形：</h4><html>
 
 <pre><code>for c in cnts:                                                                                                                                                                                                                                        
     (x,y,w,h) = cv2.boundingRect(c)                                                                                                                                                                                              
@@ -367,8 +363,7 @@ cnts = cnts[0] if imutils.is_cv2() else cnts[1]
 
 
 
-<p>####用cv2.imshow 展现最终对比之后的图片，                                                                                                                                                                  cv2.imwrite 保存最终的结果图片</p>
-<html>
+<h4 id="用cv2-imshow-展现最终对比之后的图片，-cv2-imwrite-保存最终的结果图片"><a href="#用cv2-imshow-展现最终对比之后的图片，-cv2-imwrite-保存最终的结果图片" class="headerlink" title="用cv2.imshow 展现最终对比之后的图片，                                                                                                                                                                  cv2.imwrite 保存最终的结果图片"></a>用cv2.imshow 展现最终对比之后的图片，                                                                                                                                                                  cv2.imwrite 保存最终的结果图片</h4><html>
 
 <pre><code>cv2.imshow(&quot;Modified&quot;,imageB)
 cv2.imwrite(&quot;haha2.png&quot;,imageB)
@@ -417,6 +412,10 @@ cv2.waitKey(0)
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/26/git命令/" rel="prev" title="Git常用命令">
+                Git常用命令 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -497,7 +496,7 @@ cv2.waitKey(0)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -510,7 +509,7 @@ cv2.waitKey(0)
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -543,7 +542,7 @@ cv2.waitKey(0)
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#最近项目中需要实现两组图片对比，并能将两者的区别标识出来。"><span class="nav-number">1.</span> <span class="nav-text">最近项目中需要实现两组图片对比，并能将两者的区别标识出来。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在网上搜索一大堆找到一篇大神的文章，最终实现该功能，在这里记录下："><span class="nav-number">2.</span> <span class="nav-text">在网上搜索一大堆找到一篇大神的文章，最终实现该功能，在这里记录下：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#想要实现此demo，首先我们得确保电脑上已安装-openCV-和-Python-两个工具以及scikit-image和imutils两个库："><span class="nav-number">3.</span> <span class="nav-text">想要实现此demo，首先我们得确保电脑上已安装 openCV 和 Python 两个工具以及scikit-image和imutils两个库：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装方法，在这里不多说，我安装的是Python3-6-和openCV2，安装方法网上自行百度谷歌；"><span class="nav-number">4.</span> <span class="nav-text">安装方法，在这里不多说，我安装的是Python3.6 和openCV2，安装方法网上自行百度谷歌；</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#进入正题："><span class="nav-number">4.1.</span> <span class="nav-text">进入正题：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新建一个新的Python文件并命名为copmarePicture-py，写入下面的代码："><span class="nav-number">5.</span> <span class="nav-text">新建一个新的Python文件并命名为copmarePicture.py，写入下面的代码：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#最近项目中需要实现两组图片对比，并能将两者的区别标识出来。"><span class="nav-number">1.</span> <span class="nav-text">最近项目中需要实现两组图片对比，并能将两者的区别标识出来。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在网上搜索一大堆找到一篇大神的文章，最终实现该功能，在这里记录下："><span class="nav-number">2.</span> <span class="nav-text">在网上搜索一大堆找到一篇大神的文章，最终实现该功能，在这里记录下：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#想要实现此demo，首先我们得确保电脑上已安装-openCV-和-Python-两个工具以及scikit-image和imutils两个库："><span class="nav-number">3.</span> <span class="nav-text">想要实现此demo，首先我们得确保电脑上已安装 openCV 和 Python 两个工具以及scikit-image和imutils两个库：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装方法，在这里不多说，我安装的是Python3-6-和openCV2，安装方法网上自行百度谷歌；"><span class="nav-number">4.</span> <span class="nav-text">安装方法，在这里不多说，我安装的是Python3.6 和openCV2，安装方法网上自行百度谷歌；</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#进入正题："><span class="nav-number">4.1.</span> <span class="nav-text">进入正题：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新建一个新的Python文件并命名为copmarePicture-py，写入下面的代码："><span class="nav-number">5.</span> <span class="nav-text">新建一个新的Python文件并命名为copmarePicture.py，写入下面的代码：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加载两张图片并将他们转换为灰度："><span class="nav-number">6.</span> <span class="nav-text">加载两张图片并将他们转换为灰度：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接下来，计算两个灰度图像之间的结构相似度指数："><span class="nav-number">7.</span> <span class="nav-text">接下来，计算两个灰度图像之间的结构相似度指数：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#找到不同点的轮廓以致于我们可以在被标识为“不同”的区域周围放置矩形："><span class="nav-number">8.</span> <span class="nav-text">找到不同点的轮廓以致于我们可以在被标识为“不同”的区域周围放置矩形：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#找到一系列区域，在区域周围放置矩形："><span class="nav-number">9.</span> <span class="nav-text">找到一系列区域，在区域周围放置矩形：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用cv2-imshow-展现最终对比之后的图片，-cv2-imwrite-保存最终的结果图片"><span class="nav-number">10.</span> <span class="nav-text">用cv2.imshow 展现最终对比之后的图片，                                                                                                                                                                  cv2.imwrite 保存最终的结果图片</span></a></li></ol></div>
             
 
           </div>
