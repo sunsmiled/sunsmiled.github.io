@@ -728,7 +728,8 @@ Remote：远程仓库
       
         
           
-          最近项目中需要实现两组图片对比，并能将两者的区别标识出来。在网上搜索一大堆找到一篇大神的文章，最终实现该功能，在这里记录下：想要实现此demo，首先我们得确保电脑上已安装 openCV 和 Python 两个工具以及scikit-image和imutils两个库：安装方法，在这里不多说，我安装的是Python3.6 和openCV2，安装方法网上自行百度谷歌；进入正题：新建一个新的Python文件并命名为copmarePicture.py，写入下面的代码：
+          demo地址，供参考，欢迎指正交流
+最近项目中需要实现两组图片对比，并能将两者的区别标识出来。在网上搜索一大堆找到一篇大神的文章，最终实现该功能，在这里记录下：想要实现此demo，首先我们得确保电脑上已安装 openCV 和 Python 两个工具以及scikit-image和imutils两个库：安装方法，在这里不多说，我安装的是Python3.6 和openCV2，安装方法网上自行百度谷歌；进入正题：新建一个新的Python文件并命名为copmarePicture.py，写入下面的代码：
 
 from skimage.measure import compare_ssim
 #~ import skimage  as ssim
@@ -742,7 +743,7 @@ import cv2
 imageA = cv2.imread(&quot;D:/111test/111.png&quot;)
 imageB = cv2.imread(&quot;D:/111test/444.png&quot;)
 
-grayA = cv2.cvtColor(imageA,cv2.C
+grayA = cv2.cvt
           ...
           <!--noindex-->
           <div class="post-button text-center">
