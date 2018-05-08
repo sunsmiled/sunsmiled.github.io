@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="iSara&#39;s blog">
 <meta property="og:description" content="adb 简介Android Debug Bridge，我们一般简称为adb，主要存放在sdk安装目录下的platform-tools文件夹中，它是一个非常强大的命令行工具，通过这个工具你能够与你的android设备进行交互。adb常用命令adb命令的使用格式：adb [-d|-e|-s &amp;lt;serialNumber&amp;gt;] &amp;lt;command&amp;gt; adb是必须的，接下来方括号[]里面">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-08T15:24:24.832Z">
+<meta property="og:updated_time" content="2018-05-08T15:32:15.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="adb常用命令">
 <meta name="twitter:description" content="adb 简介Android Debug Bridge，我们一般简称为adb，主要存放在sdk安装目录下的platform-tools文件夹中，它是一个非常强大的命令行工具，通过这个工具你能够与你的android设备进行交互。adb常用命令adb命令的使用格式：adb [-d|-e|-s &amp;lt;serialNumber&amp;gt;] &amp;lt;command&amp;gt; adb是必须的，接下来方括号[]里面">
@@ -343,8 +343,9 @@
 <h3 id="查看手机中某一应用的包名"><a href="#查看手机中某一应用的包名" class="headerlink" title="查看手机中某一应用的包名"></a>查看手机中某一应用的包名</h3><ul>
 <li>a.清除logcat内容，使用命令adb logcat -c </li>
 <li>b.启动logcat，使用命令adb logcat ActivityManager:I *:s</li>
-<li>c.启动要查看的程序<h2 id="5-清空数据"><a href="#5-清空数据" class="headerlink" title="5.清空数据"></a>5.清空数据</h2><code>adb shell pm clear &lt;包名&gt;</code><br><code>adb shell pm clear com.mobile.security</code></li>
+<li>c.启动要查看的程序</li>
 </ul>
+<h2 id="5-清空数据"><a href="#5-清空数据" class="headerlink" title="5.清空数据"></a>5.清空数据</h2><p><code>adb shell pm clear &lt;包名&gt;</code><br><code>adb shell pm clear com.mobile.security</code></p>
 <h1 id="其他常用的adb命令"><a href="#其他常用的adb命令" class="headerlink" title="其他常用的adb命令"></a>其他常用的adb命令</h1><h2 id="1-屏幕截图"><a href="#1-屏幕截图" class="headerlink" title="1.屏幕截图"></a>1.屏幕截图</h2><p><code>adb shell screencap /sdcard/screen.png</code></p>
 <h2 id="2-屏幕录制"><a href="#2-屏幕录制" class="headerlink" title="2.屏幕录制"></a>2.屏幕录制</h2><p><code>adb shell screenrecord /sdcard/demo.mp4</code></p>
 <h2 id="3-关闭设备请求，开启设备"><a href="#3-关闭设备请求，开启设备" class="headerlink" title="3.关闭设备请求，开启设备"></a>3.关闭设备请求，开启设备</h2><p><code>adb shell stop</code></p>
