@@ -93,7 +93,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/sunsmiled/MarkdownPicture/master/pic/sqlPic/5.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sunsmiled/MarkdownPicture/master/pic/sqlPic/6.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sunsmiled/MarkdownPicture/master/pic/sqlPic/7.png">
-<meta property="og:updated_time" content="2018-05-16T15:19:31.193Z">
+<meta property="og:updated_time" content="2018-05-16T15:24:33.929Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows下安装mysql">
 <meta name="twitter:description" content="最近工作中需要用到数据库mysql，于是就来一场mysql之旅。下面总结下在Windows下安装mysql过程（Windows7 64位）1.下载安装包打开mysql官网下载页：mysql官网下载页选择相对应的版本和平台   下载解压之后放到目录中，本教程统一放在D:\mysql-8.0.112.mysql配置在网上看的教程，都需要配置my-default.ini文件，我这下载解压后的没有这个配置">
@@ -333,8 +333,10 @@
 <h3 id="下载解压之后放到目录中，本教程统一放在D-mysql-8-0-11"><a href="#下载解压之后放到目录中，本教程统一放在D-mysql-8-0-11" class="headerlink" title="下载解压之后放到目录中，本教程统一放在D:\mysql-8.0.11"></a>下载解压之后放到目录中，本教程统一放在D:\mysql-8.0.11</h3><h1 id="2-mysql配置"><a href="#2-mysql配置" class="headerlink" title="2.mysql配置"></a>2.mysql配置</h1><h3 id="在网上看的教程，都需要配置my-default-ini文件，我这下载解压后的没有这个配置文件，所以就没配置，执行后边的步骤也能正常使用mysql"><a href="#在网上看的教程，都需要配置my-default-ini文件，我这下载解压后的没有这个配置文件，所以就没配置，执行后边的步骤也能正常使用mysql" class="headerlink" title="在网上看的教程，都需要配置my-default.ini文件，我这下载解压后的没有这个配置文件，所以就没配置，执行后边的步骤也能正常使用mysql"></a>在网上看的教程，都需要配置my-default.ini文件，我这下载解压后的没有这个配置文件，所以就没配置，执行后边的步骤也能正常使用mysql</h3><h1 id="3-安装启动mysql"><a href="#3-安装启动mysql" class="headerlink" title="3.安装启动mysql"></a>3.安装启动mysql</h1><ul>
 <li>用管理员身份打开cmd命令行工具，cd到上边解压文件的bin目录下：D:\mysql-8.0.11\mysql-8.0.11-winx64\bin</li>
 <li>输入mysqld install 回车运行，出现安装成功即可</li>
-<li>输入net start mysql 启动mysql<h3 id="在cmd里发现无法启动"><a href="#在cmd里发现无法启动" class="headerlink" title="在cmd里发现无法启动"></a>在cmd里发现无法启动</h3><h3 id="输入一下命令自动生成无密码的root用户"><a href="#输入一下命令自动生成无密码的root用户" class="headerlink" title="输入一下命令自动生成无密码的root用户"></a>输入一下命令自动生成无密码的root用户</h3><code>mysald --initialize-insecure</code><h3 id="初始化后再运行net-start-mysql成功启动mysql"><a href="#初始化后再运行net-start-mysql成功启动mysql" class="headerlink" title="初始化后再运行net start mysql成功启动mysql"></a>初始化后再运行net start mysql成功启动mysql</h3><img src="https://raw.githubusercontent.com/sunsmiled/MarkdownPicture/master/pic/sqlPic/5.png" alt=""></li>
+<li>输入net start mysql 启动mysql</li>
 </ul>
+<h3 id="在cmd里发现无法启动"><a href="#在cmd里发现无法启动" class="headerlink" title="在cmd里发现无法启动"></a>在cmd里发现无法启动</h3><h3 id="输入一下命令自动生成无密码的root用户"><a href="#输入一下命令自动生成无密码的root用户" class="headerlink" title="输入一下命令自动生成无密码的root用户"></a>输入一下命令自动生成无密码的root用户</h3><p><code>mysald --initialize-insecure</code></p>
+<h3 id="初始化后再运行net-start-mysql成功启动mysql"><a href="#初始化后再运行net-start-mysql成功启动mysql" class="headerlink" title="初始化后再运行net start mysql成功启动mysql"></a>初始化后再运行net start mysql成功启动mysql</h3><p><img src="https://raw.githubusercontent.com/sunsmiled/MarkdownPicture/master/pic/sqlPic/5.png" alt=""></p>
 <h1 id="4-进入mysql环境"><a href="#4-进入mysql环境" class="headerlink" title="4.进入mysql环境"></a>4.进入mysql环境</h1><h3 id="可以使用以下命令来创建root用户的密码："><a href="#可以使用以下命令来创建root用户的密码：" class="headerlink" title="可以使用以下命令来创建root用户的密码："></a>可以使用以下命令来创建root用户的密码：</h3><p><code>mysqladmin -u root password &quot;new_password&quot;</code></p>
 <h3 id="然后通过以下命令来连接mysql服务器："><a href="#然后通过以下命令来连接mysql服务器：" class="headerlink" title="然后通过以下命令来连接mysql服务器："></a>然后通过以下命令来连接mysql服务器：</h3><p><code>mysql -u root -p</code></p>
 <h3 id="会提示输入密码，输入密码之后即可进入mysql环境"><a href="#会提示输入密码，输入密码之后即可进入mysql环境" class="headerlink" title="会提示输入密码，输入密码之后即可进入mysql环境"></a>会提示输入密码，输入密码之后即可进入mysql环境</h3><h3 id="如果退出mysql，输入exit回车既可以"><a href="#如果退出mysql，输入exit回车既可以" class="headerlink" title="如果退出mysql，输入exit回车既可以"></a>如果退出mysql，输入exit回车既可以</h3><p><img src="https://raw.githubusercontent.com/sunsmiled/MarkdownPicture/master/pic/sqlPic/6.png" alt=""></p>
